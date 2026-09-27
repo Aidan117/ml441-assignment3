@@ -30,12 +30,10 @@ def _cache(name: str, url: str) -> str:
     return str(path)
 
 
-# --------------------------------------------------------------------------
 # 1. Mackey-Glass: synthetic chaotic benchmark, generated not downloaded.
-# --------------------------------------------------------------------------
 def load_mackey_glass(n: int = 3000, tau: int = 17, burn_in: int = 1000,
                       beta: float = 0.2, gamma: float = 0.1, n_exp: int = 10,
-                      dt: float = 1.0, seed: int = RANDOM_STATE) -> pd.Series:
+                      dt: float = 0.1, seed: int = RANDOM_STATE) -> pd.Series:
     """Integrate the Mackey-Glass delay differential equation (RK4).
 
     dx/dt = beta * x(t-tau) / (1 + x(t-tau)^n) - gamma * x(t)
@@ -63,13 +61,15 @@ def load_mackey_glass(n: int = 3000, tau: int = 17, burn_in: int = 1000,
         x[i] = xt + (dt / 6.0) * (k1 + 2 * k2 + 2 * k3 + k4)
 
     series = x[delay + burn_in * steps_per_unit::steps_per_unit][:n]
+    if not np.all(np.isfinite(series)) or series.max() > 5.0:
+        raise RuntimeError(f"Mackey-Glass integration diverged "
+                           f"(max={np.nanmax(series):.3g}); reduce dt")
     idx = pd.RangeIndex(len(series), name="t")
     return pd.Series(series, index=idx, name="mackey_glass")
 
 
-# --------------------------------------------------------------------------
+
 # 2. Melbourne daily minimum temperatures, 1981-1990.
-# --------------------------------------------------------------------------
 def load_temperature() -> pd.Series:
     path = _cache("daily-min-temperatures.csv", TEMPS_URL)
     df = pd.read_csv(path, parse_dates=["Date"]).set_index("Date")
@@ -79,9 +79,8 @@ def load_temperature() -> pd.Series:
     return s
 
 
-# --------------------------------------------------------------------------
+
 # 3. PJM East hourly electricity demand (MW).
-# --------------------------------------------------------------------------
 def load_electricity(years: float = 2.0) -> pd.Series:
     """Hourly system load. Duplicated DST hours averaged, gaps interpolated."""
     path = _cache("PJME_hourly.csv", PJME_URL)
@@ -95,9 +94,8 @@ def load_electricity(years: float = 2.0) -> pd.Series:
     return s.astype(float)
 
 
-# --------------------------------------------------------------------------
+
 # 4. Wikipedia daily pageviews for a golf article.
-# --------------------------------------------------------------------------
 def load_pageviews(article: str = "Masters_Tournament",
                    start: str = "20160101", end: str = "20250831") -> pd.Series:
     import json
@@ -116,9 +114,8 @@ def load_pageviews(article: str = "Masters_Tournament",
     return s
 
 
-# --------------------------------------------------------------------------
+
 # 5. S&P 500 daily close.
-# --------------------------------------------------------------------------
 def load_sp500(start: str = "2010-01-01", end: str = "2025-08-31") -> pd.Series:
     """Daily close. Cached to CSV so yfinance is only hit once."""
     path = DATA_DIR / "sp500.csv"
@@ -161,7 +158,7 @@ def describe(s: pd.Series) -> dict:
     elif not adf_stat and not kpss_stat:
         verdict = "non-stationary"
     else:
-        verdict = "trend-stationary" if adf_stat else "difference-stationary"
+        verdict = "difference-stationary" if adf_stat else "trend-stationary"
 
     return {
         "dataset": s.name,

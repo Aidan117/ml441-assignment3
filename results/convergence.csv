@@ -1,0 +1,16 @@
+dataset,model,hit_cap_share,median_best_epoch
+electricity,elman,0.0,39.0
+electricity,jordan,0.0,18.0
+electricity,mrnn,0.0,35.0
+mackey_glass,elman,0.0,74.0
+mackey_glass,jordan,0.0,97.0
+mackey_glass,mrnn,0.0,68.0
+pageviews,elman,0.0,48.0
+pageviews,jordan,0.0,34.0
+pageviews,mrnn,0.0,34.0
+sp500,elman,0.0,11.0
+sp500,jordan,0.2,4.0
+sp500,mrnn,0.0,0.0
+temperature,elman,0.0,28.0
+temperature,jordan,0.08,45.0
+temperature,mrnn,0.0,13.0

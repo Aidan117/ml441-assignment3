@@ -1,0 +1,46 @@
+dataset,comparison,folds,first_lower,mean_diff,agreement
+mackey_glass,elman vs jordan,5,5,-0.1889366823208097,5
+mackey_glass,elman vs mrnn,5,1,0.0032057650949043476,4
+mackey_glass,jordan vs mrnn,5,0,0.19214244741571404,5
+mackey_glass,elman vs persistence,5,5,-0.9488698999930371,5
+mackey_glass,jordan vs persistence,5,5,-0.7599332176722275,5
+mackey_glass,mrnn vs persistence,5,5,-0.9520756650879416,5
+mackey_glass,elman shortcut vs base,5,4,-0.007704822385426305,4
+mackey_glass,jordan shortcut vs base,5,5,-0.16678826670187044,5
+mackey_glass,mrnn shortcut vs base,5,4,-0.010778299014276954,4
+electricity,elman vs jordan,5,5,-0.30674793034223863,5
+electricity,elman vs mrnn,5,3,-0.007985270773195918,3
+electricity,jordan vs mrnn,5,0,0.29876265956904274,5
+electricity,elman vs persistence,5,5,-0.6962501435886319,5
+electricity,jordan vs persistence,5,5,-0.38950221324639334,5
+electricity,mrnn vs persistence,5,5,-0.688264872815436,5
+electricity,elman shortcut vs base,5,3,-0.0006844709209594735,3
+electricity,jordan shortcut vs base,5,5,-0.016658737618012797,5
+electricity,mrnn shortcut vs base,5,1,0.0023419992849554984,4
+pageviews,elman vs jordan,5,4,-0.16012019671236158,4
+pageviews,elman vs mrnn,5,3,-0.05403518311513496,3
+pageviews,jordan vs mrnn,5,1,0.10608501359722662,4
+pageviews,elman vs persistence,5,5,-0.33705646970931935,5
+pageviews,jordan vs persistence,5,5,-0.1769362729969578,5
+pageviews,mrnn vs persistence,5,5,-0.28302128659418446,5
+pageviews,elman shortcut vs base,5,1,0.026850381655897516,4
+pageviews,jordan shortcut vs base,5,3,-0.00899967553168064,3
+pageviews,mrnn shortcut vs base,5,2,0.005790711084652922,3
+temperature,elman vs jordan,5,5,-0.04092318397250801,5
+temperature,elman vs mrnn,5,1,0.003870798177469248,4
+temperature,jordan vs mrnn,5,0,0.04479398214997725,5
+temperature,elman vs persistence,5,5,-0.11159926250233627,5
+temperature,jordan vs persistence,5,5,-0.07067607852982827,5
+temperature,mrnn vs persistence,5,5,-0.11547006067980552,5
+temperature,elman shortcut vs base,5,5,-0.002055688170165637,5
+temperature,jordan shortcut vs base,5,5,-0.015822072626583816,5
+temperature,mrnn shortcut vs base,5,4,-0.00016806584783966017,4
+sp500,elman vs jordan,5,4,-0.0016160497044208188,4
+sp500,elman vs mrnn,5,1,0.001300853755108955,4
+sp500,jordan vs mrnn,5,1,0.002916903459529774,4
+sp500,elman vs persistence,5,3,-0.001909932222785904,3
+sp500,jordan vs persistence,5,4,-0.00029388251836508504,4
+sp500,mrnn vs persistence,5,3,-0.0032107859778948587,3
+sp500,elman shortcut vs base,5,2,0.003187908585106136,3
+sp500,jordan shortcut vs base,5,2,0.0010717590581296621,3
+sp500,mrnn shortcut vs base,5,1,0.00096411381922481,4

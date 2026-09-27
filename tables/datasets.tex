@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\centering
+\caption{Characteristics of the Five Time Series}
+\label{tab:datasets}
+\begin{tabular}{@{}lrlcclll@{}}
+\toprule
+Series & Length & Frequency & ADF $p$ & KPSS $p$ & Verdict & Transform & Verdict after transform \\
+\midrule
+Mackey-Glass & 3\,000 & Time step & $<0.001$ & $\geq 0.10$ & stationary & None & stationary \\
+Electricity & 8\,760 & Hourly & $<0.001$ & $\leq 0.01$ & Tests disagree & None & Tests disagree \\
+Page views & 3\,531 & Daily & $<0.001$ & $\geq 0.10$ & stationary & $\ln(1+x_t)$ & stationary \\
+Temperature & 3\,652 & Daily & $<0.001$ & $\geq 0.10$ & stationary & None & stationary \\
+S\&P 500 & 3\,939 & Trading day & 0.997 & $\leq 0.01$ & non-stationary & $\ln x_t - \ln x_{t-1}$ & stationary \\
+\bottomrule
+\end{tabular}
+\end{table*}

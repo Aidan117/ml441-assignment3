@@ -1,0 +1,6 @@
+dataset,n,freq,start,end,adf_p,kpss_p,verdict,transform,verdict_after,adf_p_after,kpss_p_after
+mackey_glass,3000,Time step,,,0.0,0.1,stationary,none,stationary,0.0,0.1
+electricity,8760,Hourly,2017-08-03,2018-08-03,0.0,0.01,difference-stationary,none,difference-stationary,0.0,0.01
+pageviews,3531,Daily,2016-01-01,2025-08-31,0.0,0.1,stationary,log1p,stationary,0.0,0.1
+temperature,3652,Daily,1981-01-01,1990-12-31,0.0003,0.1,stationary,none,stationary,0.0003,0.1
+sp500,3939,Trading day,2010-01-04,2025-08-29,0.9971,0.01,non-stationary,logdiff,stationary,0.0,0.1

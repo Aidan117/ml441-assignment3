@@ -1,0 +1,4 @@
+,wins,losses,ties,net
+mrnn,5,0,5,5
+elman,4,0,6,4
+jordan,0,9,1,-9

@@ -1,0 +1,6 @@
+dataset,selected_lag,from_models,window,residual,prominent,physical_lag
+mackey_glass,3,elman+mrnn,17,1.0026673840538787,True,17.0
+electricity,25,elman,72,0.4268798777109337,False,24.0
+pageviews,2,jordan,30,0.4998153067788289,False,
+temperature,2,mrnn,60,0.6540152958814196,True,
+sp500,3,elman,20,0.6161176283431218,True,
